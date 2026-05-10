@@ -1,0 +1,477 @@
+/* =========================================================
+   TOTAL VISUAL OVERHAUL - MODERN DARK MODE + GLASSMORPHISM
+   Tema: Midnight Purple & Gold
+   Tipografi: Space Grotesk
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap');
+
+/* --- Reset Dasar --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.6;
+    color: #e0e0e0;
+    /* Latar belakang gradient ungu gelap pekat (Midnight Purple) */
+    background: linear-gradient(135deg, #0b0914 0%, #1a1528 100%);
+    background-attachment: fixed;
+}
+
+/* Modifikasi latar section yang berselang-seling agar menyatu dengan dark mode */
+.bg-light {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* --- Navigasi (Glassmorphism Effect) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Efek kaca buram elegan */
+    background: rgba(15, 12, 41, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    /* Teks gradasi emas berkilau */
+    background: linear-gradient(45deg, #f1c40f, #e67e22);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f1c40f; /* Aksen Gold saat di-hover */
+    transform: translateY(-2px);
+}
+
+/* --- Pengaturan Seksi Umum --- */
+.content-section {
+    padding: 6rem 5%;
+}
+
+.content-section h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 3.5rem;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /* Bayangan tipis warna emas di belakang judul */
+    text-shadow: 0 0 20px rgba(241, 196, 15, 0.2);
+}
+
+/* --- 1. Beranda (Hero Section) --- */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 5%;
+    /* Layer sangat gelap di atas gambar agar teks terbaca jelas */
+    background: linear-gradient(rgba(11, 9, 20, 0.85), rgba(26, 21, 40, 0.85)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80') center/cover;
+    background-attachment: fixed;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: #cccccc;
+}
+
+.team-members {
+    /* Kotak bergaya Glassmorphism yang sangat membulat */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2rem 3rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.team-members h3 {
+    margin-bottom: 1rem;
+    color: #f1c40f;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.team-members ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.team-members li {
+    /* Pil (Pills) anggota yang futuristik */
+    background: linear-gradient(45deg, #8e44ad, #9b59b6);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.4);
+}
+
+/* --- 2. Materi (Card Layout) --- */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 2.5rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* Transisi mulus untuk efek "melayang" */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Garis tipis bercahaya di bagian atas */
+    border-top: 1px solid rgba(241, 196, 15, 0.5);
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.02);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(241, 196, 15, 0.1);
+    border-top: 2px solid #f1c40f;
+}
+
+.card h3 {
+    color: #f1c40f;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+/* --- 3. Observasi --- */
+.observation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+}
+
+.observation-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2.5rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.observation-item:hover {
+    transform: translateY(-5px);
+}
+
+.observation-item h3 {
+    color: #e67e22; 
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.observation-item p {
+    margin-bottom: 1.5rem;
+    color: #cccccc;
+}
+
+.observation-item strong {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+}
+
+/* --- 4. Analisis --- */
+.analysis-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.analysis-paragraph {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    font-style: normal;
+    color: #e0e0e0;
+    line-height: 1.8;
+}
+
+.impacts {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.impact-list {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 2.5rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.impact-list h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.impact-list:first-child h3 {
+    color: #2ecc71; /* Hijau modern untuk positif */
+}
+
+.impact-list:last-child h3 {
+    color: #e74c3c; /* Merah modern untuk negatif */
+}
+
+.impact-list ul {
+    padding-left: 1.2rem;
+    list-style-type: square;
+}
+
+.impact-list li {
+    margin-bottom: 1rem;
+    color: #cccccc;
+}
+
+/* Kotak Sorotan (Highlight Box) dengan efek glow */
+.highlight-box {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    color: #1a1528; /* Teks gelap pekat agar kontras dengan latar terang */
+    padding: 3rem;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(243, 156, 18, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight-box::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.highlight-box:hover::before {
+    opacity: 1;
+}
+
+.highlight-box h3 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0b0914;
+}
+
+.highlight-box p {
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+/* --- 5. Galeri --- */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.photo-gallery img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: all 0.5s ease;
+    /* Memberi filter dramatis (sedikit grayscale) sebelum di-hover */
+    filter: grayscale(30%) contrast(1.1); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.photo-gallery img:hover {
+    transform: scale(1.03) translateY(-10px);
+    filter: grayscale(0%) contrast(1.1); /* Mengembalikan warna penuh */
+    box-shadow: 0 20px 40px rgba(241, 196, 15, 0.2); /* Cahaya emas di bawah foto */
+}
+
+/* --- 6. Kontak --- */
+.contact-form {
+    max-width: 650px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: #e0e0e0;
+    letter-spacing: 0.5px;
+}
+
+/* Input Form dengan Glassmorphism Dark Mode */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #f1c40f;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 15px rgba(241, 196, 15, 0.2);
+}
+
+/* Tombol Submit Modern */
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(45deg, #f39c12, #e67e22);
+    color: #1a1528;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(243, 156, 18, 0.3);
+    background: linear-gradient(45deg, #f1c40f, #f39c12);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 3rem 5%;
+    background: rgba(11, 9, 20, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #888888;
+}
+
+/* --- Responsif (Mobile Friendly) --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; 
+    }
+    
+    .content-section {
+        padding: 4rem 5%; 
+    }
+
+    .content-section h2 {
+        font-size: 2.2rem; 
+        margin-bottom: 2.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem; 
+    }
+
+    .hero-content p {
+        font-size: 1.1rem; 
+    }
+
+    .team-members {
+        padding: 1.5rem;
+    }
+
+    .card-container,
+    .observation-grid,
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .impacts {
+        flex-direction: column;
+    }
+
+    .contact-form {
+        padding: 2rem 1.5rem;
+    }
+}
