@@ -177,8 +177,9 @@ body {
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    /* Transisi mulus untuk efek "melayang" */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Transisi spesifik dan hardware acceleration untuk efek "melayang" bebas lag */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+    will-change: transform, box-shadow;
     /* Garis tipis bercahaya di bagian atas */
     border-top: 1px solid rgba(241, 196, 15, 0.5);
 }
@@ -340,7 +341,9 @@ body {
     height: 300px;
     object-fit: cover;
     border-radius: 20px;
-    transition: all 0.5s ease;
+    transition: transform 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease;
+    will-change: transform, filter, box-shadow;
+    transform: translateZ(0); /* Memaksa Hardware Acceleration */
     /* Memberi filter dramatis (sedikit grayscale) sebelum di-hover */
     filter: grayscale(30%) contrast(1.1); 
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
@@ -438,6 +441,15 @@ footer {
 @media (max-width: 768px) {
     .nav-links {
         display: none; 
+    }
+
+    /* OPTIMASI PERFORMA MOBILE: Mematikan efek berat (blur & bayangan kompleks) */
+    .navbar, .team-members, .card, .observation-item, .impact-list, .contact-form, .highlight-box {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
+        /* Warna latar solid yang menyerupai kaca buram untuk mencegah lag saat di-scroll */
+        background: #151122 !important;
     }
     
     .content-section {
